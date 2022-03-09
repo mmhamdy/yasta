@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 *,
 *::before,
 *::after {
@@ -14,17 +16,33 @@ body {
   background-color: rgb(222, 228, 228);
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  width: auto;
+  background-color: transparent;
+}
+
 #root {
   margin: auto;
 }
 
 .app {
   width: 50%;
+  min-width: 500px;
   padding: 20px;
   border-radius: 10px;
   margin: auto;
+  margin-top: 100px;
   border: 1px solid black;
   background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -33,14 +51,61 @@ body {
   align-items: center;
 }
 
+.header__icon {
+  color: aqua;
+  width: 50px;
+  height: 50px;
+}
+
+.header__quote {
+  font-family: "Courgette";
+}
+
+.header__quote p::before {
+  content: "\201C";
+}
+
+.header__quote p::after {
+  content: "\201D";
+}
+
 .form form{
   display: flex;
   justify-content: center;
 }
 
+.form input[type="text"] {
+  padding: 10px;
+  padding-left: 20px;
+  width: 70%;
+  height: 50px;
+  border-width: 1px;
+  border-right: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  border: 1px solid black;
+  border-left: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.form button {
+  background-color: rgb(46, 230, 55);
+  border-radius: 50%;
+}
+
 .filters {
   display: flex;
   justify-content: center;
+  padding: 4px;
+  margin: 4px;
 }
 
 .filters p {
@@ -53,4 +118,10 @@ body {
 
 .todo {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.control-btns {
+  justify-self: flex-end;
 }

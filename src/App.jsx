@@ -6,7 +6,7 @@ const App = () => {
     <div className="app">
       <div className="header">
         <div><BsCardChecklist className="header__icon"/></div>
-        <blockquote cite="https://www.goodreads.com/quotes/340402-don-t-put-off-until-tomorrow-what-you-can-do-today">
+        <blockquote className="header__quote" cite="https://www.goodreads.com/quotes/340402-don-t-put-off-until-tomorrow-what-you-can-do-today">
           <p>Don't put off until tomorrow what you can do today.</p>
         </blockquote>
       </div>
@@ -24,7 +24,7 @@ const App = () => {
       </div>
       <div className="filters">
         <p>Show:</p>
-        <div className="filter-btns">
+        <div className="btn-group filter-btns">
           <button type="button">all</button>
           <button type="button">active</button>
           <button type="button">done</button>
@@ -40,7 +40,7 @@ const App = () => {
               <input type="checkbox" id="todo-0" defaultChecked={true}/>
               <label htmlFor="todo-0">Check your Todos</label>
             </div>
-            <div>
+            <div className="btn-group control-btns">
               <button type="button"><BsPencil /></button>
               <button type="button"><BsTrash /></button>
             </div>
