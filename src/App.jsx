@@ -1,4 +1,4 @@
-import { BsCardChecklist, BsCheck2, BsX, BsTrash, BsPencil, BsPlus } from 'react-icons/bs';
+import { BsCardChecklist, BsTrash, BsPencil, BsPlus } from 'react-icons/bs';
 import './App.css';
 
 const App = () => {
