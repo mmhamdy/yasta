@@ -1,47 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
+:root {
+  --color-primary: #302e2e;
+  --color-secondary: #FF8000;
+  --color-text: #FFFFFF;
+}
+
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font: 1.2em "Fira Sans", sans-serif;
-}
-
+html,
 body {
-  height: 100vh;
-  margin: auto;
-  background-color: rgb(222, 228, 228);
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  width: auto;
-  background-color: transparent;
-}
-
-#root {
-  margin: auto;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font: 1.2em "Fira Sans", sans-serif;
+  width: 100vw;
 }
 
 .app {
-  width: 50%;
+  width: 30%;
   min-width: 500px;
   padding: 20px;
-  border-radius: 10px;
   margin: auto;
+  border-radius: 10px;
   margin-top: 100px;
-  border: 1px solid black;
-  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  background-color: inherit;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -49,16 +40,19 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .header__icon {
-  color: aqua;
+  color: var(--color-secondary);
   width: 50px;
   height: 50px;
 }
 
 .header__quote {
   font-family: "Courgette";
+  font-size: 1rem;
 }
 
 .header__quote p::before {
@@ -69,59 +63,218 @@ button {
   content: "\201D";
 }
 
-.form form{
+.form {
+  width: 100%;
+}
+
+.form__container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: rgb(66, 63, 61);
+  border-style: solid;
+  border-color: var(--color-secondary);
+  border-radius: 50px;
+  width: 100%;
 }
 
-.form input[type="text"] {
+.form__input-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding: 10px;
-  padding-left: 20px;
-  width: 70%;
-  height: 50px;
-  border-width: 1px;
-  border-right: none;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  width: 90%;
 }
 
-.form div {
+.form__input {
+  width: 100%;
+  border: 0;
+  background-color: inherit;
+}
+
+.form__btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 7px;
+  width: 10%;
+}
+
+.form__submit-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
-  border: 1px solid black;
-  border-left: none;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #6daf08;
 }
 
-.form button {
-  background-color: rgb(46, 230, 55);
-  border-radius: 50%;
+.form__add-icon {
+  color: var(--color-text);
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .filters {
   display: flex;
   justify-content: center;
-  padding: 4px;
-  margin: 4px;
-}
-
-.filters p {
-  font-size: 12px;
-  display: inline-block;
-  margin: 0;
-  line-height: 23px;
-  text-align: center;
-}
-
-.todo {
-  display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 5px;
   width: 100%;
 }
 
-.control-btns {
-  justify-self: flex-end;
+.filters__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  width: 15%;
+}
+
+.filters__btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 82%;
+}
+
+.task-count {
+  width: 100%;
+  padding: 20px;
+  padding-left: 0;
+}
+
+.task-count__text {
+  font-size: 1rem;
+}
+
+.todos {
+  width: 100%;
+}
+
+.todos__todo-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.todos__todo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  border-width: 0.8px;
+  border-radius: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.todos__input {
+  padding-left: 1em;
+}
+
+.todos__label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.todos__label:hover .checkbox ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a orange background */
+.todos__label .checkbox:checked ~ .checkmark {
+  background-color: var(--color-secondary);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.todos__label .checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.todos__label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todos__control-btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 15%;
+}
+
+.todo-item__edit-btn {
+  color: #6daf08;
+  font-size: 1rem;
+}
+
+.todo-item__remove-btn {
+  color: red;
+  font-size: 1rem;
+
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.footer__text {
+  font-size: 0.7rem;
+}
+
+/* -----------------------------*/
+
+
+button {
+  cursor: pointer;
+  border: none;
+  width: auto;
+  color: var(--color-text);
+  background-color: transparent;
 }
