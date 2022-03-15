@@ -52,7 +52,7 @@ body {
 
 .header__quote {
   font-family: "Courgette";
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .header__quote p::before {
@@ -81,14 +81,22 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px;
   width: 90%;
 }
 
 .form__input {
   width: 100%;
+  height: 2.5rem;
   border: 0;
+  margin-left: 1em;
+  font-size: 1rem;
   background-color: inherit;
+}
+
+input[type=text]:focus {
+  outline: none;
+  caret-color: var(--color-text);
+  color: var(--color-text);
 }
 
 .form__btn-container {
@@ -128,7 +136,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-secondary);
   width: 15%;
 }
 
@@ -137,6 +147,13 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 82%;
+}
+
+.filters__btns button{
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  width: 25%;
 }
 
 .task-count {
@@ -173,6 +190,7 @@ body {
 
 .todos__input {
   padding-left: 1em;
+  padding-top: 0.4em;
 }
 
 .todos__label {
@@ -243,7 +261,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 15%;
+  width: 25%;
+}
+
+.todos__control-btns button {
+  padding: 5px;
+  border-radius: 50%;
+  width: 30%;
 }
 
 .todo-item__edit-btn {
@@ -277,4 +301,8 @@ button {
   width: auto;
   color: var(--color-text);
   background-color: transparent;
+}
+
+button:hover {
+  background-color: rgb(92, 86, 86);
 }
