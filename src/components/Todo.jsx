@@ -1,11 +1,17 @@
 import { BsTrash, BsPencil } from 'react-icons/bs';
 
-const Todo = ({ task, id, done = false }) => {
+const Todo = ({ task, id, done = false, toggleTaskDone  }) => {
   return (
     <li className="todos__todo-item">
       <div className="todos__input">
         <label className="todos__label" htmlFor={id}>{task}
-          <input className="checkbox" type="checkbox" id={id} defaultChecked={done}/>
+          <input 
+            className="checkbox" 
+            type="checkbox" 
+            id={id} 
+            defaultChecked={done}
+            onChange={() => toggleTaskDone(id)}
+          />
           <span className="checkmark"></span>
         </label>
       </div>

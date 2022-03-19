@@ -16,11 +16,23 @@ const App = ({taskList}) => {
     setTasks([...tasks, newTask]);
   }
 
+  const toggleTaskDone = (id) => {
+    const updatedTasks = tasks.map(task => {
+      if (id === task.id) {
+        return {...task, done: !task.done};
+      }
+      return task;
+    })
+    console.log(updatedTasks);
+    setTasks(updatedTasks);
+  }
+
   const tasksList = tasks.map(task => (
     <Todo 
       task={task.task}
       id={task.id}
       done={task.done}
+      toggleTaskDone={toggleTaskDone}
       key={task.id}
     />
     )
