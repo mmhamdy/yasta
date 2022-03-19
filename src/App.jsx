@@ -12,6 +12,10 @@ const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
 
   const addTask = (task) => {
+    if (task.length < 1) {
+      alert("No task given")
+      return
+    }
     const newTask = { id: "todo-" + nanoid(), task: task, done: false};
     setTasks([...tasks, newTask]);
   }
