@@ -1,6 +1,6 @@
 import { BsTrash, BsPencil } from 'react-icons/bs';
 
-const Todo = ({ task, id, done = false, toggleTaskDone  }) => {
+const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
   return (
     <li className="todos__todo-item">
       <div className="todos__input">
@@ -16,8 +16,19 @@ const Todo = ({ task, id, done = false, toggleTaskDone  }) => {
         </label>
       </div>
       <div className="btn-group todos__control-btns">
-        <button className="todo-item__edit-btn" type="button"><BsPencil /></button>
-        <button className="todo-item__remove-btn" type="button"><BsTrash /></button>
+        <button 
+          className="todo-item__edit-btn" 
+          type="button"
+        >
+          <BsPencil />
+        </button>
+        <button 
+          className="todo-item__remove-btn" 
+          type="button"
+          onClick={() => deleteTask(id)}
+        >
+          <BsTrash />
+        </button>
       </div>
     </li>
   )
