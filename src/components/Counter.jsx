@@ -1,7 +1,11 @@
-const Counter = () => {
+const Counter = ({ tasks }) => {
+  const tasksNoun = tasks.length !== 1 ? "tasks" : "task"
+  const tasksCount = `${tasks.length} ${tasksNoun} tasks remaining`
   return (
     <div className="task-count">
-      <p className="task-count__text">&#9201; 3 tasks remaining</p>
+      <p className="task-count__text">
+        &#9201; {tasksCount}
+      </p>
     </div>
   )
 }
