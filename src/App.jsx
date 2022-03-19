@@ -6,7 +6,17 @@ import Todo from './components/Todo';
 import Footer from './components/Footer';
 import './App.css';
 
-const App = () => {
+const App = ({taskList}) => {
+  const tasks = taskList.map(task => (
+    <Todo 
+      task={task.task}
+      id={task.id}
+      done={task.done}
+      key={task.id}
+    />
+    )
+  );
+
   return (
     <div className="app">
       <Header />
@@ -24,9 +34,7 @@ const App = () => {
       <Counter />
       <div className="todos">
         <ul className="todos__todo-list">
-          <Todo task="First task" />
-          <Todo task="Second task" />
-          <Todo task="Third task" />
+          {tasks}
         </ul>
       </div>
       <Footer />

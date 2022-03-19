@@ -1,11 +1,11 @@
 import { BsTrash, BsPencil } from 'react-icons/bs';
 
-const Todo = ({ task }) => {
+const Todo = ({ task, id, done = false }) => {
   return (
     <li className="todos__todo-item">
       <div className="todos__input">
-        <label className="todos__label" htmlFor="todo-0">{task}
-          <input className="checkbox" type="checkbox" id="todo-0" defaultChecked={false}/>
+        <label className="todos__label" htmlFor={id}>{task}
+          <input className="checkbox" type="checkbox" id={id} defaultChecked={done}/>
           <span className="checkmark"></span>
         </label>
       </div>
