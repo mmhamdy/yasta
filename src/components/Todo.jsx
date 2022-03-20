@@ -1,8 +1,37 @@
-import { BsTrash, BsPencil } from 'react-icons/bs';
+import { BsTrash, BsPencil, BsCheck2, BsX } from 'react-icons/bs';
 
 const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
-  return (
-    <li className="todos__todo-item">
+  const editTemplate = (
+    <form className="editing-form">
+      <div className="todos__editing-container">
+        <div className="todos__edit-input">
+          <input 
+            type="text"
+            name="text"
+            className="form__input"
+            autoComplete='off'
+          />
+        </div>
+        <div className="todos__edit-btns">
+          <button 
+            className="todo-item__save-btn" 
+            type="button"
+          >
+            <BsCheck2 />
+          </button>
+          <button 
+            className="todo-item__cancel-btn"
+            type="button"
+          >
+            <BsX />
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+  
+  const viewTemplate = (
+    <>
       <div className="todos__input">
         <label className="todos__label" htmlFor={id}>{task}
           <input 
@@ -30,6 +59,12 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
           <BsTrash />
         </button>
       </div>
+    </>
+  );
+
+  return (
+    <li className="todos__todo-item">
+      {editTemplate}
     </li>
   )
 }

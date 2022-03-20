@@ -4,6 +4,7 @@
   --color-primary: #302e2e;
   --color-secondary: #FF8000;
   --color-text: #FFFFFF;
+  --color-text-input: rgb(66, 63, 61);
 }
 
 *,
@@ -70,7 +71,7 @@ body {
 .form__container {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(66, 63, 61);
+  background-color: var(--color-text-input);
   border-style: solid;
   border-color: var(--color-secondary);
   border-radius: 50px;
@@ -264,22 +265,55 @@ input[type=text]:focus {
   width: 25%;
 }
 
-.todos__control-btns button {
+.todos__control-btns button,
+.todos__edit-btns button {
   padding: 5px;
   border-radius: 50%;
   width: 30%;
 }
+.todos__edit-btns button {
+  width: 50%;
+  font-size: 1em;
+}
 
-.todo-item__edit-btn {
+.todo-item__edit-btn,
+.todo-item__save-btn {
   color: #6daf08;
   font-size: 1rem;
 }
 
-.todo-item__remove-btn {
+.todo-item__remove-btn,
+.todo-item__cancel-btn {
   color: red;
   font-size: 1rem;
 
 }
+
+.editing-form,
+.todos__editing-container {
+  display: flex;
+  width: 100%;
+}
+
+.todos__edit-input {
+  display: flex;
+  align-items: center;
+  width: 85%;
+}
+
+.todos__edit-input input {
+  padding-left: 10px;
+  background-color: var(--color-text-input);
+}
+
+.todos__edit-btns {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -313,7 +347,8 @@ button:hover {
   align-items: center;
   border-radius: 50%;
   margin: auto;
-  width: 10em;
-  height: 15em;
+  width: 5em;
+  color: var(--color-secondary);
+  font-size: 3em;
 }
 
