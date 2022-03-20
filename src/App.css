@@ -306,3 +306,14 @@ button {
 button:hover {
   background-color: rgb(92, 86, 86);
 }
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: auto;
+  width: 10em;
+  height: 15em;
+}
+
