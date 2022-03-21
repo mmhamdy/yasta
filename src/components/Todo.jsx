@@ -1,8 +1,23 @@
+import { useState } from 'react';
 import { BsTrash, BsPencil, BsCheck2, BsX } from 'react-icons/bs';
 
-const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
+const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) => {
+  const [isEditing, setEditing] = useState(false);
+  const [newTask, setNewTask] = useState("");
+
+  const handleChange = (e) => {
+    setNewTask(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editTask(id, newTask);
+    setNewTask("");
+    setEditing(false);
+  }
+
   const editTemplate = (
-    <form className="editing-form">
+    <form className="editing-form" onSubmit={handleSubmit}>
       <div className="todos__editing-container">
         <div className="todos__edit-input">
           <input 
@@ -10,18 +25,21 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
             name="text"
             className="form__input"
             autoComplete='off'
+            value={newTask}
+            onChange={handleChange}
           />
         </div>
         <div className="todos__edit-btns">
           <button 
             className="todo-item__save-btn" 
-            type="button"
+            type="submit"
           >
             <BsCheck2 />
           </button>
           <button 
             className="todo-item__cancel-btn"
             type="button"
+            onClick={() => setEditing(false)}
           >
             <BsX />
           </button>
@@ -48,6 +66,7 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
         <button 
           className="todo-item__edit-btn" 
           type="button"
+          onClick={() => setEditing(true)}
         >
           <BsPencil />
         </button>
@@ -64,7 +83,7 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask }) => {
 
   return (
     <li className="todos__todo-item">
-      {editTemplate}
+      {isEditing ? editTemplate : viewTemplate}
     </li>
   )
 }

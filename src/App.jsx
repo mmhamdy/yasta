@@ -26,6 +26,16 @@ const App = ({taskList}) => {
     setTasks(remainingTasks);
   }
 
+  const editTask = (id, newTask) => {
+    const editedTasks = tasks.map(task => {
+      if (id === task.id) {
+        return {...task, task: newTask}
+      }
+      return task;
+    });
+    setTasks(editedTasks);
+  }
+
   const toggleTaskDone = (id) => {
     const updatedTasks = tasks.map(task => {
       if (id === task.id) {
@@ -44,6 +54,7 @@ const App = ({taskList}) => {
       done={task.done}
       toggleTaskDone={toggleTaskDone}
       deleteTask={deleteTask}
+      editTask={editTask}
       key={task.id}
     />
     )
