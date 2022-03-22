@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { BsAwardFill } from 'react-icons/bs';
+import { FILTER_MAP, FILTER_NAMES } from './constants';
 import Header from './components/Header';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
@@ -11,6 +12,7 @@ import './App.css';
 
 const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
+  const [filter, setFilter] = useState("All");
 
   const addTask = (task) => {
     if (task.length < 1) {
