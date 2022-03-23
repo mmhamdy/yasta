@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BsPlus } from 'react-icons/bs';
+import styles from './Form.module.css';
 
 const Form = ({ addTask}) => {
   const [task, setTask] = useState('');
@@ -14,23 +15,23 @@ const Form = ({ addTask}) => {
     setTask('');
   }
   return (
-    <div className="form">
+    <div className={styles.form}>
       <form onSubmit={handleSubmit}>
-        <div className="form__container">
-          <div className="form__input-container">
+        <div className={styles.form__container}>
+          <div className={styles.form__inputContainer}>
             <input 
               type="text"
               name="text"
-              className="form__input"
+              className={styles.form__input}
               autoComplete='off'
               placeholder="So, what needs to be done?"
               value={task}
               onChange={handleChange}
             />
           </div>
-          <div className="form__btn-container">
-            <button className="form__submit-btn" type="submit">
-              <BsPlus className="form__add-icon"/>
+          <div className={styles.form__btnContainer}>
+            <button className={styles.form__submitBtn} type="submit">
+              <BsPlus className={styles.form__addIcon}/>
             </button>
           </div>
         </div>

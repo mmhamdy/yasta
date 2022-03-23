@@ -1,0 +1,145 @@
+.form__input {
+  width: 100%;
+  height: 2.5rem;
+  border: 0;
+  margin-left: 1em;
+  font-size: 1rem;
+  background-color: inherit;
+}
+
+.todos__todo {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  border-width: 0.8px;
+  border-radius: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.todos__input {
+  padding-left: 1em;
+  padding-top: 0.4em;
+}
+
+.todos__label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.todos__label:hover .checkbox ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a orange background */
+.todos__label .checkbox:checked ~ .checkmark {
+  background-color: var(--color-secondary);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.todos__label .checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.todos__label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todos__controlBtns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+.todos__controlBtns button,
+.todos__editBtns button {
+  padding: 5px;
+  border-radius: 50%;
+  width: 30%;
+}
+.todos__editBtns button {
+  width: 50%;
+  font-size: 1em;
+}
+
+.todo__editBtn,
+.todo__saveBtn {
+  color: #6daf08;
+  font-size: 1rem;
+}
+
+.todo__removeBtn,
+.todo__cancelBtn {
+  color: red;
+  font-size: 1rem;
+
+}
+
+.editingForm,
+.todos__editingContainer {
+  display: flex;
+  width: 100%;
+}
+
+.todos__editInput {
+  display: flex;
+  align-items: center;
+  width: 85%;
+}
+
+.todos__editInput input {
+  padding-left: 10px;
+  background-color: var(--color-text-input);
+}
+
+.todos__editBtns {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,11 @@
+.filterBtn {
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  width: 25%;
+}
+
+.filterBtn[aria-pressed="true"] {
+  background-color: #262525;
+  box-shadow: 2px 2px 2px 1px #000000 inset;
+}

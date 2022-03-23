@@ -1,0 +1,9 @@
+.count {
+  width: 100%;
+  padding: 20px;
+  padding-left: 0;
+}
+
+.count__text {
+  font-size: 1rem;
+}

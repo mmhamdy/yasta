@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+:root {
+  --color-primary: #302e2e;
+  --color-secondary: #FF8000;
+  --color-text: #FFFFFF;
+  --color-text-input: rgb(66, 63, 61);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font: 1.2em "Fira Sans", sans-serif;
+  width: 100vw;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  width: auto;
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: rgb(92, 86, 86);
+}
+
+.app {
+  width: 30%;
+  min-width: 500px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 100px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  background-color: inherit;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding: 5px;
+  width: 100%;
+}
+
+.filters__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+  width: 15%;
+}
+
+.filters__btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 82%;
+}
+
+.todos {
+  width: 100%;
+}
+
+.todos__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.svg__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: auto;
+  width: 5em;
+  color: var(--color-secondary);
+  font-size: 3em;
+}
+
+
+

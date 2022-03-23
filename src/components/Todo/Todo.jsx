@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BsTrash, BsPencil, BsCheck2, BsX } from 'react-icons/bs';
+import styles from './Todo.module.css';
 
 const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) => {
   const [isEditing, setEditing] = useState(false);
@@ -17,27 +18,27 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) 
   }
 
   const editTemplate = (
-    <form className="editing-form" onSubmit={handleSubmit}>
-      <div className="todos__editing-container">
-        <div className="todos__edit-input">
+    <form className={styles.editingForm} onSubmit={handleSubmit}>
+      <div className={styles.todos__editingContainer}>
+        <div className={styles.todos__editInput}>
           <input 
             type="text"
             name="text"
-            className="form__input"
+            className={styles.form__input}
             autoComplete='off'
             value={newTask}
             onChange={handleChange}
           />
         </div>
-        <div className="todos__edit-btns">
+        <div className={styles.todos__editBtns}>
           <button 
-            className="todo-item__save-btn" 
+            className={styles.todo__saveBtn}
             type="submit"
           >
             <BsCheck2 />
           </button>
           <button 
-            className="todo-item__cancel-btn"
+            className={styles.todo__cancelBtn}
             type="button"
             onClick={() => setEditing(false)}
           >
@@ -50,28 +51,28 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) 
   
   const viewTemplate = (
     <>
-      <div className="todos__input">
-        <label className="todos__label" htmlFor={id}>{task}
+      <div className={styles.todos__input}>
+        <label className={styles.todos__label} htmlFor={id}>{task}
           <input 
-            className="checkbox" 
+            className={styles.checkbox} 
             type="checkbox" 
             id={id} 
             defaultChecked={done}
             onChange={() => toggleTaskDone(id)}
           />
-          <span className="checkmark"></span>
+          <span className={styles.checkmark}></span>
         </label>
       </div>
-      <div className="btn-group todos__control-btns">
+      <div className={styles.todos__controlBtns}>
         <button 
-          className="todo-item__edit-btn" 
+          className={styles.todo__editBtn} 
           type="button"
           onClick={() => setEditing(true)}
         >
           <BsPencil />
         </button>
         <button 
-          className="todo-item__remove-btn" 
+          className={styles.todo__removeBtn} 
           type="button"
           onClick={() => deleteTask(id)}
         >
@@ -82,7 +83,7 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) 
   );
 
   return (
-    <li className="todos__todo-item">
+    <li className={styles.todos__todo}>
       {isEditing ? editTemplate : viewTemplate}
     </li>
   )

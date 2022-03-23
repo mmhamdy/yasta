@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.header__icon {
+  color: var(--color-secondary);
+  width: 50px;
+  height: 50px;
+}
+
+.header__quote {
+  font-family: "Courgette";
+  font-size: 0.9rem;
+}
+
+.header__quote p::before {
+  content: "\201C";
+}
+
+.header__quote p::after {
+  content: "\201D";
+}

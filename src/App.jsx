@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { BsAwardFill } from 'react-icons/bs';
 import { FILTER_MAP, FILTER_NAMES } from './constants';
-import Header from './components/Header';
-import Form from './components/Form';
-import FilterButton from './components/FilterButton';
-import Counter from './components/Counter';
-import Todo from './components/Todo';
-import Footer from './components/Footer';
-import './App.css';
+import Header from './components/Header/Header';
+import Form from './components/Form/Form';
+import FilterButton from './components/FilterButton/FilterButton';
+import Counter from './components/Counter/Counter';
+import Todo from './components/Todo/Todo';
+import Footer from './components/Footer/Footer';
+import styles from'./App.module.css';
 
 const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
@@ -74,31 +74,31 @@ const App = ({taskList}) => {
   ));
 
   const tasksExist = (
-    <ul className="todos__todo-list">
+    <ul className={styles.todos__list}>
       {tasksList}
     </ul>
   );
 
   const noTasksExist = (
-    <div className="svg-container">
+    <div className={styles.svg__container}>
       <BsAwardFill />
     </div>
   );
 
   return (
-    <div className="app">
+    <div className={styles.app}>
       <Header />
       <Form addTask={addTask}/>
-      <div className="filters">
-        <div className="filters__text">
+      <div className={styles.filters}>
+        <div className={styles.filters__text}>
           <p>Show:</p>
         </div>
-        <div className="btn-group filters__btns">
+        <div className={styles.filters__btns}>
          {filterList}
         </div>
       </div>
       <Counter tasks={tasks} />
-      <div className="todos">
+      <div className={styles.todos}>
         {tasks.length >= 1 ? tasksExist : noTasksExist}
       </div>
       <Footer />
