@@ -75,12 +75,19 @@ const App = ({taskList}) => {
     />
   ));
 
-  const onDragEnd = () => {
-    // TODO
+  const handleOnDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+    const reorderedTasks = Array.from(tasks);
+    const [draggableId] = reorderedTasks.splice(result.source.index, 1);
+    reorderedTasks.splice(result.destination.index, 0, draggableId);
+    setTasks(reorderedTasks);
+
   }
 
   const tasksExist = (
-    <DragDropContext onDragEnd={onDragEnd}> 
+    <DragDropContext onDragEnd={handleOnDragEnd}> 
       <Droppable droppableId="column-1">
         {provided => (
           <ul 
