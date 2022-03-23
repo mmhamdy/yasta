@@ -341,6 +341,11 @@ button:hover {
   background-color: rgb(92, 86, 86);
 }
 
+.filter-btn[aria-pressed="true"] {
+  background-color: #262525;
+  box-shadow: 2px 2px 2px 1px #000000 inset;
+}
+
 .svg-container {
   display: flex;
   justify-content: center;

@@ -1,6 +1,13 @@
-const FilterButton = ({ text }) => {
+const FilterButton = ({ text, isPressed, setFilter }) => {
   return (
-    <button type="button">{text}</button>
+    <button 
+      type="button"
+      className="filter-btn"
+      aria-pressed={isPressed}
+      onClick={() => setFilter(text)}
+    >
+      {text}
+    </button>
   )
 }
 

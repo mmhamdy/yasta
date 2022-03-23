@@ -49,7 +49,9 @@ const App = ({taskList}) => {
     setTasks(updatedTasks);
   }
 
-  const tasksList = tasks.map(task => (
+  const tasksList = tasks
+  .filter(FILTER_MAP[filter])
+  .map(task => (
     <Todo 
       task={task.task}
       id={task.id}
@@ -61,6 +63,15 @@ const App = ({taskList}) => {
     />
     )
   );
+
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton 
+      text={name} 
+      key={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
 
   const tasksExist = (
     <ul className="todos__todo-list">
@@ -83,9 +94,7 @@ const App = ({taskList}) => {
           <p>Show:</p>
         </div>
         <div className="btn-group filters__btns">
-          <FilterButton text="All" />
-          <FilterButton text="Active" />
-          <FilterButton text="Done" />
+         {filterList}
         </div>
       </div>
       <Counter tasks={tasks} />
