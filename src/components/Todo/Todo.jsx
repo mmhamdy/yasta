@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 import { BsTrash, BsPencil, BsCheck2, BsX } from 'react-icons/bs';
 import styles from './Todo.module.css';
 
-const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) => {
+const Todo = ({ task, index, id, done = false, toggleTaskDone, deleteTask, editTask }) => {
   const [isEditing, setEditing] = useState(false);
   const [newTask, setNewTask] = useState("");
 
@@ -83,9 +84,18 @@ const Todo = ({ task, id, done = false, toggleTaskDone, deleteTask, editTask }) 
   );
 
   return (
-    <li className={styles.todos__todo}>
-      {isEditing ? editTemplate : viewTemplate}
-    </li>
+    <Draggable draggableId={id} index={index}>
+      {provided => (
+        <li 
+          className={styles.todos__todo}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          {isEditing ? editTemplate : viewTemplate}
+        </li>
+      )}
+    </Draggable>
   )
 }
 

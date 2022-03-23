@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { BsAwardFill } from 'react-icons/bs';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { FILTER_MAP, FILTER_NAMES } from './constants';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
@@ -51,9 +52,10 @@ const App = ({taskList}) => {
 
   const tasksList = tasks
   .filter(FILTER_MAP[filter])
-  .map(task => (
+  .map((task, index) => (
     <Todo 
       task={task.task}
+      index={index}
       id={task.id}
       done={task.done}
       toggleTaskDone={toggleTaskDone}
@@ -73,10 +75,25 @@ const App = ({taskList}) => {
     />
   ));
 
+  const onDragEnd = () => {
+    // TODO
+  }
+
   const tasksExist = (
-    <ul className={styles.todos__list}>
-      {tasksList}
-    </ul>
+    <DragDropContext onDragEnd={onDragEnd}> 
+      <Droppable droppableId="column-1">
+        {provided => (
+          <ul 
+            className={styles.todos__list}
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {tasksList}
+            {provided.placeholder}
+          </ul>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 
   const noTasksExist = (

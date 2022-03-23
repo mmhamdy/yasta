@@ -11,8 +11,9 @@
   display: flex;
   justify-content: space-between;
   padding: 20px 5px;
-  border-style: solid;
+  background-color: var(--color-primary);
   border-color: var(--color-secondary);
+  border-style: solid;
   border-width: 0.8px;
   border-radius: 10px;
   margin: 5px 0;
