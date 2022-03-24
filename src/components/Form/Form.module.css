@@ -30,6 +30,7 @@
 
 input[type=text]:focus {
   outline: none;
+  border: none;
   caret-color: var(--color-text);
   color: var(--color-text);
 }
