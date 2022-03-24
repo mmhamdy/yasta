@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { usePrevious } from '../../hooks';
 import { Draggable } from 'react-beautiful-dnd';
 import { BsTrash, BsPencil, BsCheck2, BsX } from 'react-icons/bs';
 import styles from './Todo.module.css';
@@ -6,6 +7,9 @@ import styles from './Todo.module.css';
 const Todo = ({ task, index, id, done = false, toggleTaskDone, deleteTask, editTask }) => {
   const [isEditing, setEditing] = useState(false);
   const [newTask, setNewTask] = useState("");
+  const wasEditing = usePrevious(isEditing);
+  const editFieldRef = useRef(null);
+  const editButtonRef = useRef(null);
 
   const handleChange = (e) => {
     setNewTask(e.target.value);
@@ -29,6 +33,7 @@ const Todo = ({ task, index, id, done = false, toggleTaskDone, deleteTask, editT
             autoComplete='off'
             value={newTask}
             onChange={handleChange}
+            ref={editFieldRef}
           />
         </div>
         <div className={styles.todos__editBtns}>
@@ -69,6 +74,7 @@ const Todo = ({ task, index, id, done = false, toggleTaskDone, deleteTask, editT
           className={styles.todo__editBtn} 
           type="button"
           onClick={() => setEditing(true)}
+          ref={editButtonRef}
         >
           <BsPencil />
         </button>
@@ -82,6 +88,15 @@ const Todo = ({ task, index, id, done = false, toggleTaskDone, deleteTask, editT
       </div>
     </>
   );
+
+  useEffect(() => {
+    if (!wasEditing && isEditing) {
+      editFieldRef.current.focus();
+    }
+    if (wasEditing && !isEditing) {
+      editButtonRef.current.focus();
+    }
+  }, [wasEditing, isEditing])
 
   return (
     <Draggable draggableId={id} index={index}>

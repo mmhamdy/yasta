@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { usePrevious } from './hooks';
 import { nanoid } from 'nanoid';
 import { BsAwardFill } from 'react-icons/bs';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
@@ -14,6 +15,7 @@ import styles from'./App.module.css';
 const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
   const [filter, setFilter] = useState("All");
+  const counterRef = useRef(null);
 
   const addTask = (task) => {
     if (task.length < 1) {
@@ -109,6 +111,14 @@ const App = ({taskList}) => {
     </div>
   );
 
+  const prevTasksLength = usePrevious(tasksList.length);
+
+  useEffect(() => {
+    if (tasksList.length - prevTasksLength === -1) {
+      counterRef.current.focus();
+    }
+  }, [tasksList.length, prevTasksLength])
+
   return (
     <div className={styles.app}>
       <Header />
@@ -121,7 +131,7 @@ const App = ({taskList}) => {
          {filterList}
         </div>
       </div>
-      <Counter tasks={tasksList} />
+      <Counter tasks={tasksList} ref={counterRef}/>
       <div className={styles.todos}>
         {tasksList.length >= 1 ? tasksExist : noTasksExist}
       </div>
