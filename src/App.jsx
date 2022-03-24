@@ -121,9 +121,9 @@ const App = ({taskList}) => {
          {filterList}
         </div>
       </div>
-      <Counter tasks={tasks} />
+      <Counter tasks={tasksList} />
       <div className={styles.todos}>
-        {tasks.length >= 1 ? tasksExist : noTasksExist}
+        {tasksList.length >= 1 ? tasksExist : noTasksExist}
       </div>
       <Footer />
     </div>
