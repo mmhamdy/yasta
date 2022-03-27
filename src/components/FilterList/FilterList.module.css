@@ -1,0 +1,25 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding: 5px;
+  width: 100%;
+}
+
+.filters__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+  width: 15%;
+}
+
+.filters__btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 82%;
+}

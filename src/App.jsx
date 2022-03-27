@@ -1,16 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePrevious } from './hooks';
 import { nanoid } from 'nanoid';
-import { BsAwardFill } from 'react-icons/bs';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { FILTER_MAP, FILTER_NAMES } from './constants';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
-import FilterButton from './components/FilterButton/FilterButton';
 import Counter from './components/Counter/Counter';
 import Todo from './components/Todo/Todo';
+import TodoList from './components/TodoList/TodoList';
 import Footer from './components/Footer/Footer';
 import styles from'./App.module.css';
+import FilterList from './components/FilterList/FilterList';
 
 const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
@@ -68,49 +67,6 @@ const App = ({taskList}) => {
     )
   );
 
-  const filterList = FILTER_NAMES.map(name => (
-    <FilterButton 
-      text={name} 
-      key={name}
-      isPressed={name === filter}
-      setFilter={setFilter}
-    />
-  ));
-
-  const handleOnDragEnd = (result) => {
-    if (!result.destination) {
-      return;
-    }
-    const reorderedTasks = Array.from(tasks);
-    const [draggableId] = reorderedTasks.splice(result.source.index, 1);
-    reorderedTasks.splice(result.destination.index, 0, draggableId);
-    setTasks(reorderedTasks);
-
-  }
-
-  const tasksExist = (
-    <DragDropContext onDragEnd={handleOnDragEnd}> 
-      <Droppable droppableId="column-1">
-        {provided => (
-          <ul 
-            className={styles.todos__list}
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-          >
-            {tasksList}
-            {provided.placeholder}
-          </ul>
-        )}
-      </Droppable>
-    </DragDropContext>
-  );
-
-  const noTasksExist = (
-    <div className={styles.svg__container}>
-      <BsAwardFill />
-    </div>
-  );
-
   const prevTasksLength = usePrevious(tasksList.length);
 
   useEffect(() => {
@@ -123,18 +79,17 @@ const App = ({taskList}) => {
     <div className={styles.app}>
       <Header />
       <Form addTask={addTask}/>
-      <div className={styles.filters}>
-        <div className={styles.filters__text}>
-          <p>Show:</p>
-        </div>
-        <div className={styles.filters__btns}>
-         {filterList}
-        </div>
-      </div>
+      <FilterList 
+        filterNames={FILTER_NAMES} 
+        filter={filter} 
+        setFilter={setFilter} 
+      />
       <Counter tasks={tasksList} ref={counterRef}/>
-      <div className={styles.todos}>
-        {tasksList.length >= 1 ? tasksExist : noTasksExist}
-      </div>
+      <TodoList 
+        tasks={tasks} 
+        filteredTasks={tasksList} 
+        setTasks={setTasks} 
+      />
       <Footer />
     </div>
   );

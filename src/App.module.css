@@ -56,52 +56,6 @@ button:hover {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
 }
 
-.filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-  padding: 5px;
-  width: 100%;
-}
-
-.filters__text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--color-secondary);
-  width: 15%;
-}
-
-.filters__btns {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 82%;
-}
-
-.todos {
-  width: 100%;
-}
-
-.todos__list {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-}
-
-.svg__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin: auto;
-  width: 5em;
-  color: var(--color-secondary);
-  font-size: 3em;
-}
 
 
 
