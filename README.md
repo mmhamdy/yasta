@@ -12,17 +12,18 @@ Yasta is a simple task manager (a fancy word for a todo app) whose sole purpose 
 
 ## 🔮 Technologies
 
-Besides love ♥, Yasta was made using these wonderful packages:
+Besides love ♥, Yasta was made using these wonderful technologies:
 
 &nbsp;
 <div align="center">
 
 ![React](./doc/images/react.png)
+![Jest](./doc/images/jest.png)
 ![React Icons](./doc/images/reacticons.png)
 ![Create React App](./doc/images/cra.png)
-![nanoid](./doc/images/nanoid.png)
-![React Beautiful dnd](./doc/images/reactbdnd.png)
 ![css modules](./doc/images/cssmodules.png)
+![React Beautiful dnd](./doc/images/reactbdnd.png)
+![nanoid](./doc/images/nanoid.png)
 
 </div>
 &nbsp;
