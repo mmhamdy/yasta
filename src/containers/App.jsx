@@ -1,15 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import { usePrevious } from './hooks';
+import { usePrevious } from '../hooks';
 import { nanoid } from 'nanoid';
-import { FILTER_MAP, FILTER_NAMES } from './constants';
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
-import Counter from './components/Counter/Counter';
-import Todo from './components/Todo/Todo';
-import TodoList from './components/TodoList/TodoList';
-import Footer from './components/Footer/Footer';
+import { FILTER_MAP, FILTER_NAMES } from '../constants';
+import Header from '../components/Header/Header';
+import Form from '../components/Form/Form';
+import Counter from '../components/Counter/Counter';
+import Todo from '../components/Todo/Todo';
+import TodoList from '../components/TodoList/TodoList';
+import Footer from '../components/Footer/Footer';
 import styles from'./App.module.css';
-import FilterList from './components/FilterList/FilterList';
+import FilterList from '../components/FilterList/FilterList';
 
 const App = ({taskList}) => {
   const [tasks, setTasks] = useState(taskList);
@@ -54,16 +54,16 @@ const App = ({taskList}) => {
   const tasksList = tasks
   .filter(FILTER_MAP[filter])
   .map((task, index) => (
-    <Todo 
-      task={task.task}
-      index={index}
-      id={task.id}
-      done={task.done}
-      toggleTaskDone={toggleTaskDone}
-      deleteTask={deleteTask}
-      editTask={editTask}
-      key={task.id}
-    />
+      <Todo 
+        task={task.task}
+        index={index}
+        id={task.id}
+        done={task.done}
+        toggleTaskDone={toggleTaskDone}
+        deleteTask={deleteTask}
+        editTask={editTask}
+        key={task.id}
+      />
     )
   );
 
